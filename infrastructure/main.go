@@ -1,20 +1,10 @@
 package main
 
 import (
-	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/s3"
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/danielrive/awsnetworking"
 )
 
 func main() {
-	pulumi.Run(func(ctx *pulumi.Context) error {
-		// Create an AWS resource (S3 Bucket)
-		bucket, err := s3.NewBucket(ctx, "my-bucket", nil)
-		if err != nil {
-			return err
-		}
+	awsnetworking.Createnetworking("daniel", "10.0.0.0/16")
 
-		// Export the name of the bucket
-		ctx.Export("bucketName", bucket.ID())
-		return nil
-	})
 }
